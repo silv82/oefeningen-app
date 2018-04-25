@@ -1,0 +1,51 @@
+.input-add-items {
+  margin-bottom: 30px;
+}
+
+h2 {
+  margin: 15px 0;
+  color: #36486b;
+}
+
+.input-item {
+  padding: 0 5px;
+  width: auto;
+}
+
+.amount-items {
+  position: absolute;
+  right: 10px;
+}
+
+.input-amount {
+  margin-left: 10px;
+  padding: 0 5px;
+  width: 80px;
+}
+
+.new-item {
+  font-style: italic;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.btn-default {
+  margin-left: 5px;
+}
+
+.btn-primary {
+  margin-top: 20px;
+}
+
+.text-danger {
+  font-weight: bold;
+  font-size: large;
+}
+
+.confirm-item {
+  color: #c83349;
+  font-size: small;
+  font-style: italic;
+  font-weight: 500;
+
+}

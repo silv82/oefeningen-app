@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="input-add-items">
+    <h2>Je boodschappenlijst:</h2>
+    <input
+      type="text"
+      class="input-group-lg input-item"
+      placeholder="Wat wil je kopen?"
+      [(ngModel)]="newItem"
+      #txtItem
+      (keyup.enter)="addItem(txtItem)"
+    >
+    <button
+      class="btn btn-default btn-sm"
+      (click)="addItem(txtItem)"
+      [disabled]="disableButton()"
+    >Toevoegen!
+    </button>
+    <p *ngIf="newItem && !disableButton()" class="confirm-item">Weet je zeker dat je <span class="new-item">{{newItem}}</span> nodig hebt?</p>
+  </div>
+  <div class="add-items-list">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-action" *ngFor="let item of items ">
+        {{ item.name }}
+        <span class="amount-items">
+          Aantal:
+          <input
+            type="number"
+            class="input-group-sm input-amount"
+            placeholder="0"
+            #amountItem>
+        </span>
+      </li>
+    </ul>
+    <p *ngIf="disableButton()" class="text-danger">Je hebt te veel in je lijst! Je kunt ze niet allemaal meenemen!</p>
+  </div>
+  <button *ngIf="items.length >= 1" class="btn btn-primary" (click)="showFinalClick()">Lijst opslaan</button>
+</div>
+
+
