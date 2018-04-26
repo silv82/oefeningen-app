@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Boodschappenlijst';
   showFinalList = false;
-  newItems: string[];
+  newItems: string[] = [];
   newItem: string;
 
   ngOnInit(){
@@ -20,9 +20,12 @@ export class AppComponent {
         for(let i = 0; i < localStorage.length; i++) {
         this.newItem = localStorage.getItem(localStorage.key(i));
         console.log(localStorage.key(i));
-        //this.newItems.push(this.newItem);
+        this.newItems.push(this.newItem);
+        console.log(this.newItem);
       }
     }
+
+
 
 
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ItemService} from "../../services/item.service";
 import {Item} from "../../models/item.model";
 
@@ -11,9 +11,12 @@ import {Item} from "../../models/item.model";
 export class FinalListComponent implements OnInit {
   items: Item[] = [];
 
+  @Input() newItems: string[] = [];
+
   constructor(private itemService: ItemService) { }
 
   ngOnInit() {
+
     this.itemService.getItems()
       .subscribe(itemData => {
         this.items = itemData;})
