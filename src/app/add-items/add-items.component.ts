@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { Item } from "../../models/item.model";
+import {ItemService} from "../../services/item.service";
 
 @Component({
   selector: 'app-add-items',
@@ -10,16 +11,15 @@ export class AddItemsComponent implements OnInit {
 
   items: Item[] = [];
 
-  @Output()
-  showFinalList: EventEmitter<boolean> = new EventEmitter();
+  @Output() showFinalList: EventEmitter<boolean> = new EventEmitter();
 
-  constructor() {
+  constructor(private itemService: ItemService) {
   }
 
   ngOnInit() {
 /*    this.items = [
-      new Item(1, 'Komkommer'),
-      new Item(2, 'Paprika'),
+      new Item(1, 'Komkommer', 5),
+      new Item(2, 'Paprika'), 6,
     ];*/
   }
 
@@ -27,7 +27,8 @@ export class AddItemsComponent implements OnInit {
     let newID = this.items.length + 1;
     let newItem = new Item(newID , txtItem.value)
     this.items.push(newItem);
-    txtItem.value = '';
+    localStorage.setItem(newID.toString(), JSON.stringify(newItem.name));
+    this.itemService.Stream.next(txtItem);
   }
 
   disableButton() {
@@ -39,5 +40,4 @@ export class AddItemsComponent implements OnInit {
   showFinalClick(){
     this.showFinalList.emit(true);
   }
-
 }

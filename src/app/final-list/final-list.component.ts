@@ -17,6 +17,14 @@ export class FinalListComponent implements OnInit {
     this.itemService.getItems()
       .subscribe(itemData => {
         this.items = itemData;})
+
+    this.itemService.Stream
+      .subscribe(
+        (item:Item) => this.addFinalList(item));
+
+  }
+
+  addFinalList(item:Item){
   }
 
 }

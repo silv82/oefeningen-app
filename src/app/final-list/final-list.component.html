@@ -7,10 +7,14 @@
       <li
         class="list-group-item list-group-item-secondary"
         *ngFor="let item of items"
-        >{{item.name}}
+        >
+        {{item.name}}
         <span class="badge badge-primary badge-pill">10</span>
         <input type="checkbox" class="item-checked">
       </li>
+      <li
+        class="list-group-item list-group-item-secondary"
+        *ngFor="let item of newItems" ></li>
     </ul>
     <button class="btn btn-primary clear-list">Lijst wissen</button>
   </div>
